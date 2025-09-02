@@ -1,0 +1,42 @@
+{
+  "name": "sample",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --loader ts-node/esm server.ts",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
+    "vercel-build": "npm run build",
+    "start": "node dist/server/server.js"
+  },
+  "dependencies": {
+    "@devwareng/vanilla-ts": "^1.2.127",
+    "@tailwindcss/vite": "^4.1.11",
+    "animate.css": "^4.1.1",
+    "boxicons": "^2.1.4",
+    "compression": "^1.8.0",
+    "express": "^5.1.0",
+    "lodash": "^4.17.21",
+    "sirv": "^3.0.1",
+    "tailwindcss": "^4.1.11",
+    "ts-node": "^10.9.2",
+    "typeface-oxanium": "^1.1.13",
+    "zustand": "^5.0.6"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/lodash": "^4.17.20",
+    "@types/node": "^24.1.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dompurify": "^3.2.6",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.0"
+  }
+}

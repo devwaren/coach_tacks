@@ -1,0 +1,39 @@
+import { Router } from "express";
+import path from "path";
+import fs from "fs";
+import { csrfProtection, generateCsrfToken } from '../utils/index.ts';
+
+export const backendRouter = Router();
+
+
+// CSRF token endpoint
+backendRouter.get("/api/csrf-token", generateCsrfToken);
+
+// Example protected route
+backendRouter.get("/api/play-video", (req, res) => {
+    const csrfHeader = req.headers["x-csrf-token"];
+    const csrfCookie = req.cookies["csrf_token"];
+
+    if (csrfHeader !== csrfCookie) {
+        return res.status(403).json({ error: "Invalid CSRF token" });
+    }
+
+});
+
+// ✅ Protected video route
+backendRouter.get("/api/play-video/:filename", csrfProtection, (req, res) => {
+    const { filename } = req.params;
+    const filePath = path.join(process.cwd(), "videos", filename);
+
+    // Check if file exists
+    if (!fs.existsSync(filePath)) {
+        return res.status(404).json({ error: "Video not found" });
+    }
+
+    // Set headers
+    res.setHeader("Content-Type", "video/mp4");
+
+    // Stream video file
+    const stream = fs.createReadStream(filePath);
+    stream.pipe(res);
+});
