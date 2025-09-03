@@ -4,7 +4,6 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import express from 'express'
 import type { ViteDevServer } from 'vite'
-import { runServer } from './backend/index.ts'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const isDev = process.env.NODE_ENV !== 'production'
@@ -59,8 +58,6 @@ app.use('*', async (req, res) => {
   }
 })
 
-// Initialize services, but make sure it does NOT call app.listen()
-runServer()
 
 // ✅ Export app for Vercel
 export default app
