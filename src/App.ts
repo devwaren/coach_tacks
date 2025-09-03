@@ -31,4 +31,5 @@ export default function Start(DOM?: HTMLElement) {
 }
 
 // For SSR string output
+
 export const startHTML = Start();
