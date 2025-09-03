@@ -12,7 +12,7 @@
     "start": "node --loader ts-node/esm server.ts && node --loader ts-node/esm backend/index.ts"
   },
   "dependencies": {
-    "@devwareng/vanilla-ts": "^1.2.127",
+    "@devwareng/vanilla-ts": "^1.2.128",
     "@tailwindcss/vite": "^4.1.11",
     "animate.css": "^4.1.1",
     "boxicons": "^2.1.4",
@@ -40,11 +40,11 @@
     "vite": "^7.0.0"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "*",
     "@rollup/rollup-darwin-x64": "*",
+    "@rollup/rollup-linux-x64-gnu": "*",
     "@rollup/rollup-win32-x64-msvc": "*",
-    "lightningcss-linux-x64-gnu": "*",
     "lightningcss-darwin-x64": "*",
+    "lightningcss-linux-x64-gnu": "*",
     "lightningcss-win32-x64-msvc": "*"
   }
 }
