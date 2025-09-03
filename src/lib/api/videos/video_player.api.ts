@@ -1,6 +1,11 @@
-export const playVideo = async (
-    videoElement: HTMLVideoElement,
-    filename: string
+
+type PlayVideo = (videoElement: HTMLVideoElement, filename: string) => Promise<void>
+
+const isDev = import.meta.env.DEV
+
+export const playVideo: PlayVideo = async (
+    videoElement,
+    filename
 ) => {
     try {
         // Step 1: Get CSRF
@@ -26,6 +31,6 @@ export const playVideo = async (
         videoElement.src = url;
         await videoElement.play();
     } catch (err) {
-        console.error("Error playing video:", err);
+        if (isDev) console.error("Video play error:", err);
     }
 };
