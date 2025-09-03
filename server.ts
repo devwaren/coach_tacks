@@ -110,10 +110,6 @@ app.use('*all', async (req, res) => {
   }
 })
 
-// Start server
-
-runServer(app)
-
 app.listen(port, () => {
   console.log(`✅ Server started at http://localhost:${port} (${isDev ? 'dev' : 'prod'})`)
 })
