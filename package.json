@@ -1,14 +1,14 @@
 {
-  "name": "sample",
+  "name": "coach-tacker-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "node --loader ts-node/esm server.ts",
-    "build": "npm run build:client && npm run build:server",
+    "build": "yarn build:client && yarn build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
-    "vercel-build": "npm run build",
+    "vercel-build": "yarn build",
     "start": "node --loader ts-node/esm server.ts && node --loader ts-node/esm backend/index.ts"
   },
   "dependencies": {
