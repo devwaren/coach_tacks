@@ -38,5 +38,10 @@
     "dompurify": "^3.2.6",
     "typescript": "~5.8.3",
     "vite": "^7.0.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*",
+    "@rollup/rollup-darwin-x64": "*",
+    "@rollup/rollup-win32-x64-msvc": "*"
   }
 }
