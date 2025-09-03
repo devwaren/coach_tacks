@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url'
 import express from 'express'
 import type { ViteDevServer } from 'vite'
 import crypto from 'crypto' // added for nonce
+import { runServer } from './backend/index.ts' // import the backend server
 
 // Constants
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -110,6 +111,9 @@ app.use('*all', async (req, res) => {
 })
 
 // Start server
+
+runServer()
+
 app.listen(port, () => {
   console.log(`✅ Server started at http://localhost:${port} (${isDev ? 'dev' : 'prod'})`)
 })
