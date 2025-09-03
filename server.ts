@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url'
 import express from 'express'
 import type { ViteDevServer } from 'vite'
 import crypto from 'crypto' // added for nonce
+import { runServer } from './index';
 
 // Constants
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -73,6 +74,8 @@ if (isDev) {
   app.use(compression())
   app.use(base, sirv(path.resolve(__dirname, 'dist/client'), { extensions: [] }))
 }
+
+app.use(runServer);
 
 // HTML rendering
 app.use('*all', async (req, res) => {
