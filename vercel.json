@@ -1,11 +1,10 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "/server.ts",
-            "use": "@vercel/node"
+    "functions": {
+        "api/server.ts": {
+            "runtime": "nodejs20.x"
         }
-    ],
+    },
     "routes": [
         {
             "src": "/robots.txt",
@@ -13,7 +12,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "/server.ts"
+            "dest": "/api/server.ts"
         }
     ]
 }

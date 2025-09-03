@@ -1,20 +1,16 @@
+// server.ts
 import fs from 'node:fs/promises'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import express from 'express'
 import type { ViteDevServer } from 'vite'
-import { runServer } from './backend/index.ts';
+import { runServer } from './backend/index.ts'
 
-// Constants
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const isDev = process.env.NODE_ENV !== 'production'
-const port = process.env.PORT || 5173
 const base = process.env.BASE || '/'
 
-// Create Express app
 const app = express()
-
-// Dev server (Vite) or static file handler
 let vite: ViteDevServer | undefined
 
 if (isDev) {
@@ -32,8 +28,7 @@ if (isDev) {
   app.use(base, sirv(path.resolve(__dirname, 'dist/client'), { extensions: [] }))
 }
 
-// HTML rendering
-app.use('*all', async (req, res) => {
+app.use('*', async (req, res) => {
   try {
     const url = req.originalUrl.replace(base, '')
 
@@ -64,8 +59,8 @@ app.use('*all', async (req, res) => {
   }
 })
 
+// Initialize services, but make sure it does NOT call app.listen()
 runServer()
-// Start server
-app.listen(port, () => {
-  console.log(`✅ Server started at http://localhost:${port} (${isDev ? 'dev' : 'prod'})`)
-})
+
+// ✅ Export app for Vercel
+export default app
