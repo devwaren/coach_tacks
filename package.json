@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@devwareng/vanilla-ts": "^1.2.128",
+    "@swc/core": "^1.13.5",
     "@tailwindcss/vite": "^4.1.11",
     "animate.css": "^4.1.1",
     "boxicons": "^2.1.4",
