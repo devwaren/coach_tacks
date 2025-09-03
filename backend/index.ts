@@ -3,8 +3,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import { backendRouter } from "./routes/setup.router.ts";
 
-export function runServer() {
-    const app = express();
+export function runServer(app: express.Express) {
 
     // ✅ Enable CORS for frontend
     app.use(
