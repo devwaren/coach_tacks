@@ -4,14 +4,14 @@ export const playVideo = async (
 ) => {
     try {
         // Step 1: Get CSRF
-        const resToken = await fetch("http://localhost:4000/api/csrf-token", {
+        const resToken = await fetch("/api/csrf-token", {
             credentials: "include",
         });
         const { csrfToken } = await resToken.json();
 
         // Step 2: Request video
         const res = await fetch(
-            `http://localhost:4000/api/play-video/${filename}`,
+            `/api/play-video/${filename}`,
             {
                 headers: { "x-csrf-token": csrfToken },
                 credentials: "include",
