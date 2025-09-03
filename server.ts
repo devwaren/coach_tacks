@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url'
 import express from 'express'
 import type { ViteDevServer } from 'vite'
 import crypto from 'crypto' // added for nonce
-import { runServer } from './index.ts' // import the backend server
 
 // Constants
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
