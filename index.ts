@@ -1,7 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import { backendRouter } from "./routes/setup.router.ts";
+import { backendRouter } from "./backend/routes/setup.router.ts";
 
 export function runServer(app: express.Express) {
 
