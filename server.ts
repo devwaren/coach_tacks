@@ -25,7 +25,7 @@ if (!isDev) {
       "style-src 'self' 'unsafe-inline'",
       `script-src 'self' 'nonce-${nonce}' https://www.googletagmanager.com https://www.google-analytics.com`,
       "font-src 'self' https: data:",
-      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.googleapis.com https://www.gstatic.com",
+      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.googleapis.com https://www.gstatic.com http://localhost:4000 ws://localhost:5173 ws://localhost:4000",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
