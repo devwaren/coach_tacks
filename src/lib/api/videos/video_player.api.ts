@@ -1,5 +1,6 @@
 type PlayVideo = (videoElement: HTMLVideoElement, filename: string) => Promise<void>;
 
+// frontend
 export const playVideo: PlayVideo = async (videoElement, filename) => {
     try {
         // Step 1: Get CSRF
@@ -8,10 +9,9 @@ export const playVideo: PlayVideo = async (videoElement, filename) => {
         });
         const { csrfToken } = await resToken.json();
 
-        // Step 2: Set video src directly (streaming supported!)
-        videoElement.src = `/api/play-video/${filename}`;
+        // Step 2: Stream with CSRF in query
+        videoElement.src = `/api/play-video/${filename}?csrf=${csrfToken}`;
         videoElement.setAttribute("crossorigin", "use-credentials");
-        videoElement.setAttribute("x-csrf-token", csrfToken); // if needed, handled differently
 
         await videoElement.play();
     } catch (err) {
