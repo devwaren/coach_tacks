@@ -9,7 +9,7 @@
     "build": "yarn build:client && yarn build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
-    "vercel-build": "yarn build && node --loader ts-node/esm server.ts",
+    "vercel-build": "yarn build",
     "start": "cross-env NODE_ENV node --loader ts-node/esm server.ts"
   },
   "dependencies": {
