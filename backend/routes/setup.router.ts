@@ -6,10 +6,10 @@ import { csrfProtection, generateCsrfToken } from "../utils/index.ts";
 export const backendRouter = Router();
 
 // CSRF token endpoint
-backendRouter.get("/api/csrf-token", generateCsrfToken);
+backendRouter.get("/csrf-token", generateCsrfToken);
 
 // Example protected route
-backendRouter.get("/api/play-video", (req, res) => {
+backendRouter.get("/play-video", (req, res) => {
     const csrfHeader = req.headers["x-csrf-token"];
     const csrfCookie = req.cookies["csrf_token"];
 
@@ -21,7 +21,7 @@ backendRouter.get("/api/play-video", (req, res) => {
 });
 
 // ✅ Protected video route
-backendRouter.get("/api/play-video/:filename", csrfProtection, (req, res) => {
+backendRouter.get("/play-video/:filename", csrfProtection, (req, res) => {
     const { filename } = req.params;
     const filePath = path.join(process.cwd(), "videos", filename);
 
