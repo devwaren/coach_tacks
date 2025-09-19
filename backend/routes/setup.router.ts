@@ -1,7 +1,7 @@
 import { Router } from "express";
 import path from "path";
 import fs from "fs";
-import { csrfProtection, generateCsrfToken } from "../utils/index.ts";
+import { csrfProtection, generateCsrfToken } from "../utils";
 
 export const backendRouter = Router();
 
