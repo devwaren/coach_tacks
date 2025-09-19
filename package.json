@@ -9,8 +9,8 @@
     "build": "yarn build:client && yarn build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
-    "vercel-build": "yarn build && node --loader ts-node/esm index.ts",
-    "start": "node --loader ts-node/esm server.ts && node --loader ts-node/esm backend/index.ts"
+    "vercel-build": "yarn build && node --loader ts-node/esm server.ts",
+    "start": "node --loader ts-node/esm server.ts"
   },
   "dependencies": {
     "@devwareng/vanilla-ts": "^1.2.128",
