@@ -5,7 +5,7 @@ import express from "express";
 import type { ViteDevServer } from "vite";
 import crypto from "crypto"; // nonce
 import cookieParser from "cookie-parser";
-import { backendRouter } from "./backend/routes/setup.router"; // 🔧 no .ts
+import { backendRouter } from "./backend/routes/setup.router.js"; // 🔧 no .ts
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isDev = process.env.NODE_ENV !== "production";
