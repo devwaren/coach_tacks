@@ -20,6 +20,12 @@ export function runServer() {
     // Routes
     app.use(backendRouter);
 
+    const port = 8080
 
 
+    app.listen(port, () => {
+        console.log(`Server is Listening on port : ${port}`)
+    })
 }
+
+runServer()

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --loader ts-node/esm server.ts",
+    "server": "node --loader ts-node/esm index.ts",
     "build": "yarn build:client && yarn build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
@@ -33,6 +34,7 @@
     "@types/express": "^5.0.3",
     "@types/lodash": "^4.17.20",
     "@types/node": "^24.1.0",
+    "concurrently": "^9.2.1",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
@@ -47,5 +49,9 @@
     "lightningcss-darwin-x64": "*",
     "lightningcss-linux-x64-gnu": "*",
     "lightningcss-win32-x64-msvc": "*"
-  }
+  },
+  "trustedDependencies": [
+    "@swc/core",
+    "@tailwindcss/oxide"
+  ]
 }

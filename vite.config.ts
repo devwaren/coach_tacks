@@ -2,9 +2,10 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
+import { TSFilebasedRouter } from "@devwareng/vanilla-ts"
 
 export default defineConfig({
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), TSFilebasedRouter()],
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src'),

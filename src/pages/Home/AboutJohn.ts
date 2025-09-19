@@ -14,7 +14,7 @@ export default function AboutJohn(DOM: HTMLElement) {
                     <video id="player" data-onselect="playerDiv" autoplay loop muted playsinline preload="metadata"
                         poster="/thumbnails/tacker.jpg"
                         class="w-full max-w-xl rounded-lg shadow-lg object-contain object-bottom">
-                        <source src="/api/play-video/championship.mp4" type="video/mp4" />
+                        <source src="http://localhost:8080/api/play-video/championship.mp4" type="video/mp4" />
                         <track src="/captions/tacker.vtt" kind="subtitles" srclang="en" label="English" />
                         Your browser does not support the video tag.
                     </video>

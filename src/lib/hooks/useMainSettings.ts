@@ -1,7 +1,7 @@
 import { useTSCollection, useTSComponent } from "@devwareng/vanilla-ts"
 import { Footer, Navbar } from "../components"
-import { Router } from "@/routes"
 import { ReturnMainComponents } from "../types/Return"
+import { Router } from "@/routes/__root"
 
 const useMainSettings = (DOM: HTMLElement, title: string): ReturnMainComponents => {
 

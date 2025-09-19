@@ -4,7 +4,7 @@ import "boxicons/css/boxicons.min.css"
 import "animate.css"
 import { useSSR } from "./lib/hooks";
 import { useMainSettings } from "./lib/hooks";
-import { html, useTSAnchorMount, useTSElements } from '@devwareng/vanilla-ts';
+import { html, useTSElements } from '@devwareng/vanilla-ts';
 
 export default function Start(DOM?: HTMLElement) {
     const { isDOM } = useSSR(DOM);
@@ -25,7 +25,6 @@ export default function Start(DOM?: HTMLElement) {
     );
 
     useMainSettings(isDOM, title)
-    useTSAnchorMount()
 
     return ui;
 }
