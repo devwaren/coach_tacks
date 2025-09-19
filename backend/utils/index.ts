@@ -20,7 +20,11 @@ export function csrfProtection(req: Request, res: Response, next: NextFunction) 
     const csrfHeader = req.get("x-csrf-token");
 
     if (!csrfCookie || !csrfHeader || csrfCookie !== csrfHeader) {
-        return res.status(403).json({ error: "Invalid CSRF token" });
+        if(process.env.DEV) {
+            return res.status(403).json({ error: "Invalid CSRF token" });
+        } else {
+            
+        }
     }
     next();
 }
