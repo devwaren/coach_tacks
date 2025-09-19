@@ -1,12 +1,6 @@
+type PlayVideo = (videoElement: HTMLVideoElement, filename: string) => Promise<void>;
 
-type PlayVideo = (videoElement: HTMLVideoElement, filename: string) => Promise<void>
-
-const isDev = import.meta.env.DEV
-
-export const playVideo: PlayVideo = async (
-    videoElement,
-    filename
-) => {
+export const playVideo: PlayVideo = async (videoElement, filename) => {
     try {
         // Step 1: Get CSRF
         const resToken = await fetch("/api/csrf-token", {
@@ -14,23 +8,13 @@ export const playVideo: PlayVideo = async (
         });
         const { csrfToken } = await resToken.json();
 
-        // Step 2: Request video
-        const res = await fetch(
-            `/api/play-video/${filename}`,
-            {
-                headers: { "x-csrf-token": csrfToken },
-                credentials: "include",
-            }
-        );
+        // Step 2: Set video src directly (streaming supported!)
+        videoElement.src = `/api/play-video/${filename}`;
+        videoElement.setAttribute("crossorigin", "use-credentials");
+        videoElement.setAttribute("x-csrf-token", csrfToken); // if needed, handled differently
 
-        if (!res.ok) throw new Error(`Failed: ${res.statusText}`);
-
-        // Step 3: Blob + assign
-        const blob = await res.blob();
-        const url = URL.createObjectURL(blob);
-        videoElement.src = url;
         await videoElement.play();
     } catch (err) {
-        if (isDev) console.error("Video play error:", err);
+        if (import.meta.env.DEV) console.error("Video play error:", err);
     }
 };
