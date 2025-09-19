@@ -5,7 +5,7 @@ import express from "express";
 import type { ViteDevServer } from "vite";
 import crypto from "crypto"; // nonce
 import cookieParser from "cookie-parser";
-import { backendRouter } from "./backend/routes/setup.router.ts";
+import { backendRouter } from "./backend/routes/setup.router"; // 🔧 no .ts
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isDev = process.env.NODE_ENV !== "production";
@@ -18,7 +18,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 
-// ✅ Security headers in production
+// ✅ Security headers (prod)
 if (!isDev) {
   app.use((req, res, next) => {
     const nonce = crypto.randomBytes(16).toString("base64");
@@ -58,7 +58,7 @@ if (!isDev) {
 // ✅ Mount backend API under /api
 app.use("/api", backendRouter);
 
-// Dev server (Vite) or static file handler
+// Dev server (Vite) or static handler
 let vite: ViteDevServer | undefined;
 if (isDev) {
   const { createServer } = await import("vite");
@@ -81,7 +81,7 @@ app.use("*all", async (req, res) => {
     const url = req.originalUrl.replace(base, "");
 
     let template: string;
-    let render: (url: string, nonce: string) => Promise<{ html: string; head: string }>;
+    let render: (url: string, nonce: string) => Promise<{ html?: string; head?: string }>;
 
     if (isDev && vite) {
       template = await fs.readFile(path.resolve(__dirname, "index.html"), "utf-8");
@@ -89,7 +89,7 @@ app.use("*all", async (req, res) => {
       render = (await vite.ssrLoadModule("/src/entry-server.ts")).render;
     } else {
       template = await fs.readFile(path.resolve(__dirname, "dist/client/index.html"), "utf-8");
-      const mod = await import(path.resolve(__dirname, "dist/server/entry-server.js"));
+      const mod = await import(`file://${path.resolve(__dirname, "dist/server/entry-server.js")}`); // 🔧
       render = mod.render as typeof render;
     }
 
