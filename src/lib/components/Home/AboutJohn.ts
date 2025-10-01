@@ -2,6 +2,16 @@ import { playVideo } from "@/lib/api";
 import { html, useTSElements, useTSSelect } from "@devwareng/vanilla-ts";
 
 export default function AboutJohn(DOM: HTMLElement) {
+
+    const isDev = process.env.NODE_ENV !== "production";
+    let url = ""
+
+    if (isDev) {
+        url = "http://localhost:8080/api/play-video/championship.mp4"
+    } else {
+        url = "/api/play-video/championship.mp4"
+    }
+
     const ui = useTSElements(
         DOM,
         html`
@@ -12,7 +22,7 @@ export default function AboutJohn(DOM: HTMLElement) {
                     <div class="w-full md:w-2/3 lg:w-1/2">
                         <video id="player" data-onselect="playerDiv" autoplay loop muted playsinline preload="metadata"
                             poster="/thumbnails/tacker.jpg" class="w-full rounded-lg shadow-lg object-contain object-bottom">
-                            <source src="http://localhost:8080/api/play-video/championship.mp4" type="video/mp4" />
+                            <source src=${url} type="video/mp4" />
                             <track src="/captions/tacker.vtt" kind="subtitles" srclang="en" label="English" />
                             Your browser does not support the video tag.
                         </video>
