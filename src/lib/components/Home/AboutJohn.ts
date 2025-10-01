@@ -9,7 +9,7 @@ export default function AboutJohn(DOM: HTMLElement) {
     if (isDev) {
         url = "http://localhost:8080/api/play-video/championship.mp4"
     } else {
-        url = "/api/play-video/championship.mp4"
+        url = "https://coach-tacks.vercel.app//api/play-video/championship.mp4"
     }
 
     const ui = useTSElements(
