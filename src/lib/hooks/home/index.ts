@@ -1,6 +1,6 @@
 import { useTSCollection } from "@devwareng/vanilla-ts"
 import { useHeroSettings } from "./hero"
-import { AboutJohn, Classes, Hero, Testimonials } from "@/pages/Home"
+import { AboutJohn, Classes, Hero, Testimonials } from "@/lib/components/Home"
 
 const useHomeSettings = (DOM: HTMLElement) => {
 

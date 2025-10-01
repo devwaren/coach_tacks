@@ -13,7 +13,7 @@ export default function Index(DOM: HTMLElement) {
   const ui = useTSElements(
     DOM,
     html`
-        <div class="bg-black w-full h-auto relative text-white">
+        <div class="bg-black w-full h-auto relative text-white px-4 md:px-8 lg:px-0">
           <div id="hero" class=""></div>
           <div id="about-john" class="relative"></div>
           <div id="classes" class="relative"></div>

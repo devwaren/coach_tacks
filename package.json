@@ -13,7 +13,7 @@
     "start": "cross-env NODE_ENV node --loader ts-node/esm server.ts"
   },
   "dependencies": {
-    "@devwareng/vanilla-ts": "^1.2.128",
+    "@devwareng/vanilla-ts": "^1.7.0",
     "@swc/core": "^1.13.5",
     "@tailwindcss/vite": "^4.1.11",
     "animate.css": "^4.1.1",

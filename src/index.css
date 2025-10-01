@@ -4,3 +4,31 @@
 .hero-title {
     font-family: "Montserrat", sans-serif;
 }
+
+.text-10em {
+    font-size: 10em;
+}
+
+.bottom-left-10 {
+    left: 10%;
+}
+
+.right-10 {
+    right: 10%;
+}
+
+.bottom-50 {
+    bottom: 50%;
+}
+
+.bg-gym {
+    background-image: url('/gym.webp');
+}
+
+.bg-slate-dark {
+    background-color: #1F1F1F;
+}
+
+.font-oxanium {
+    font-family: "Oxanium", sans-serif;
+}

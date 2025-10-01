@@ -50,21 +50,21 @@ export default function Hero(DOM: HTMLElement) {
                         class="relative animate__animated animate__fadeInRight animate__delay-1s rounded-b-full z-[1]"
                         alt="Coach" width="450" />
                     <div
-                        class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-black/60 to-transparent z-[2]">
+                        class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-black/60 to-transparent z-10">
                     </div>
                 </div>
             </div>
     
-            <div class="absolute bottom-0 left-[10px]">
+            <div class="absolute left-30 -bottom-10">
                 <div class="relative">
-                    <h3 class="text-[10em] font-extrabold uppercase opacity-10">John Tacker</h3>
+                    <h3 class="text-10em font-extrabold uppercase opacity-10">John Tacker</h3>
                 </div>
             </div>
     
             <!-- background image -->
             <img src="/group.png"
-                class="absolute animate__animated animate__fadeInRight animate__delay-1s right-[-10em] bottom-[-5em]"
-                alt="Coach" width="900" height="1800" />
+                class="absolute animate__animated animate__fadeInRight animate__delay-1s right-10 -bottom-90 min-h-screen"
+                alt="Coach" width="900" height="900" />
         </div>
     </section>
     `

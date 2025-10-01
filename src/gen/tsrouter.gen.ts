@@ -2,11 +2,7 @@
 import { html, useTSElements } from "@devwareng/vanilla-ts"
 
 import NotFound from "../pages/404/NotFound";
-import AboutJohn from "../pages/Home/AboutJohn";
-import Classes from "../pages/Home/Classes";
 import Hero from "../pages/Home/Hero";
-import Index from "../pages/Home/index";
-import Testimonials from "../pages/Home/Testimonials";
 import Index from "../pages/index";
 
 export function NotFound(DOM: HTMLElement) {
@@ -19,11 +15,7 @@ export function RootDocument(DOM: HTMLElement) {
 
 export const routeTree = [
   { path: "/404/NotFound", name: "404-NotFound", component: (DOM: HTMLElement) => NotFound(DOM) },
-  { path: "/Home/AboutJohn", name: "Home-AboutJohn", component: (DOM: HTMLElement) => AboutJohn(DOM) },
-  { path: "/Home/Classes", name: "Home-Classes", component: (DOM: HTMLElement) => Classes(DOM) },
   { path: "/Home/Hero", name: "Home-Hero", component: (DOM: HTMLElement) => Hero(DOM) },
-  { path: "/Home", name: "Home", component: (DOM: HTMLElement) => Index(DOM) },
-  { path: "/Home/Testimonials", name: "Home-Testimonials", component: (DOM: HTMLElement) => Testimonials(DOM) },
   { path: "/", name: "index", component: (DOM: HTMLElement) => Index(DOM) }
 ]
 
